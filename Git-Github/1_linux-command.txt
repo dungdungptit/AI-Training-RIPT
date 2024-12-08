@@ -1,0 +1,79 @@
+Dưới đây là một số lệnh Linux cơ bản để thao tác với tệp và thư mục:
+
+NOTE:
+.   : đường dẫn thư mục hiện tại
+
+1. Làm việc với thư mục (Directory)
+- Hiển thị thư mục hiện tại: pwd
+$ pwd
+  /home/user
+
+- Liệt kê các tệp và thư mục trong thư mục hiện tại: ls
+$ ls
+  file1.txt  file2.txt  folder1
+
+- Chuyển đến thư mục khác: cd <directory>
+$ cd folder1
+
+- Tạo một thư mục mới: mkdir <directory>
+$ mkdir new_folder
+
+- Xóa thư mục rỗng: rmdir <directory>
+$ rmdir empty_folder
+
+- Xóa thư mục và tất cả các tệp bên trong: rm -r <directory>
+$ rm -r folder_name
+
+2. Làm việc với tệp (File)
+- Tạo một tệp mới rỗng: touch <file>
+$ touch new_file.txt
+
+- Thêm nội dung vào tệp: cat <file>
+$ cat file1.txt
+
+- Xem nội dung tệp: cat <file>
+$ cat file1.txt
+
+- Hiển thị nội dung tệp từng trang (dùng để đọc tệp dài): more <file>
+$ more file1.txt
+
+- Tương tự more, nhưng cho phép cuộn lên và xuống trong tệp: less <file>
+$ less file1.txt
+
+- Hiển thị 10 dòng đầu tiên của tệp: head <file>
+$ head file1.txt
+
+- Hiển thị 10 dòng cuối cùng của tệp: tail <file>
+$ tail file1.txt
+
+- Sao chép tệp: cp <source> <destination>
+$ cp file1.txt file2.txt
+
+- Di chuyển hoặc đổi tên tệp: mv <source> <destination>
+$ mv file1.txt new_file1.txt
+
+- Xóa tệp: rm <file>
+$ rm file1.txt
+
+- Chỉnh sửa tệp văn bản trong trình soạn thảo: nano <file> hoặc vi <file>
+$ nano file1.txt
+
+3. Tìm kiếm và lọc
+- Tìm tệp theo tên trong thư mục: find <directory> -name <filename>
+$ find /home/user -name "*.txt"
+
+- Tìm kiếm một chuỗi trong tệp: grep <pattern> <file>
+$ grep "hello" file1.txt
+
+- Tìm kiếm tệp trên hệ thống: locate <filename>
+$ locate file1.txt
+
+4. Kiểm tra thông tin tệp
+- Hiển thị thông tin chi tiết về các tệp và thư mục (quyền truy cập, kích thước, ngày tạo, v.v.): ls -l
+$ ls -l
+
+- Xác định loại tệp: file <file>
+$ file file1.txt
+
+- Hiển thị thông tin chi tiết về tệp, bao gồm kích thước, quyền truy cập, thời gian sửa đổi, v.v: stat <file>
+$ stat file1.txt

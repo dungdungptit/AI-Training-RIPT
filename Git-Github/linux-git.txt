@@ -1,0 +1,43 @@
+1. Linux
+1.1.
+- tạo thư mục a và 1 file tên a.txt trong đó
+- thêm nội dung sau vào file
+"abc"
+"cdf"
+
+- xóa file a.txt
+
+1.2. 
+- tạo 1 thư mục a2 và 1 file a2.txt
+- Thêm nội dung vào a2.txt
+- Copy a2.txt sang thư muc a ở 1.1.
+
+2. Git
+- Tạo 1 project cho quá trình học AI
+
+2.1.
+- Tạo 1 thư mục 1_linux_git trong project
+- Tạo và thêm các file tùy ý
+- Đẩy được project lên github
+
+2.2.
+- Tạo 1 thư mục data_structure_and_algorithm trong project
+- Tạo thư mục report, thư mục code
+- Copy báo cáo đã làm vào thư mục report, code vào thư mục code
+- Đẩy được project lên github
+
+Cấu trúc cần đạt:
+name_project_AI
+    - 1_linux_git
+        - folder, file tùy ý
+    - data_structure_and_algorithm
+        - report
+            - 1_sorting.docx
+        - code
+            - 1_sorting.ipynb
+            ...
+
+NOTE:
+- Chỉnh sửa lại docx báo cáo thuật toán sắp xếp
+- Thêm chỉ mục, mục lục
+- Format lại nội dung cùng cỡ chữ, font chữ

@@ -1,0 +1,475 @@
+GIT Version Control System [GVCS]
+`````````````````````````````````
+Git được tạo ra bởi Linus Torvalds nhằm phục vụ phát triển Linux Kernel.
+
+Git là gì?
+Git là một hệ thống quản lý phiên bản (version control system).
+
+Git cho phép "lưu" lại trạng thái chính xác của các tệp và quay lại trạng thái đó bất cứ lúc nào nếu phát hiện sai sót trong quá trình thay đổi.
+
+Khi các nhà phát triển làm việc trên một dự án, mã nguồn sẽ liên tục được thay đổi để đáp ứng yêu cầu của dự án.
+
+Tuy nhiên, đôi khi cần quay lại kiểm tra các phiên bản mã nguồn trước đó.
+
+ 
+ 
+ 
+ 
+Các khái niệm cơ bản
+Mã nguồn cục bộ
+Đây là công việc thực hiện trên máy tính cá nhân. Bất kỳ chỉnh sửa, định dạng, tính năng hoặc công việc phát triển nào trên máy tính đều được gọi là mã nguồn cục bộ.
+
+Khu vực staging
+Khi đã hài lòng với các thay đổi hoặc khối lượng công việc đã hoàn thành, có thể đánh dấu chúng là đã sẵn sàng để staging. Điều này nghĩa là các dòng mã này đã sẵn sàng để được commit.
+
+Máy chủ
+Khi đã sẵn sàng với các tệp trong khu vực staging, có thể gửi chúng lên máy chủ nơi lưu trữ toàn bộ mã nguồn để những người khác cũng có thể sử dụng. Lúc này, các tệp có thể được người khác xem và chỉnh sửa.
+ 
+Tại sao cần làm những điều trên về git
+⚫ Kiểm tra xem phiên bản trước có hoạt động tốt hơn không.
+⚫ Xác định những thay đổi đã được thực hiện và thời điểm chúng xảy ra.
+⚫ Phát hiện và xác định lỗi.
+
+✅ Git hỗ trợ theo dõi và quản lý tất cả các thay đổi này.
+
+ 
+
+
+
+GitHub là gì?
+GitHub là một nền tảng cho phép lưu trữ lịch sử phiên bản trên nền tảng đám mây.
+
+Sự khác biệt giữa Git và GitHub
+🔷 Git là một công cụ hỗ trợ theo dõi và quản lý tất cả các thay đổi đã thực hiện theo thời gian.
+🔷 Git được chạy và quản lý trên hệ thống cục bộ.
+
+Trong khi đó:
+
+🔷 GitHub là một trang web để lưu trữ dự án dưới dạng kho lưu trữ (repositories) của Git.
+🔷 GitHub hoàn toàn dựa trên nền tảng đám mây.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Các lệnh git cơ bản:
+```````
+Cài đặt Git:
+````````
+# apt install git -y
+ 
+Kiểm tra phiên bản:
+``````````````
+# git --version
+
+Cấu hình Git với tên người dùng và email
+Khi bắt đầu sử dụng Git, cần thiết lập tên người dùng và địa chỉ email:
+ 
+# git config --global user.name "username"
+# git config --global user.email "username@email.com"
+# git config --global --list
+OR
+# git config --global -l
+ 
+Xóa cấu hình đã thiết lập
+Sử dụng tùy chọn --unset để xóa một thiết lập:
+```````````````````````````````````````````
+# git config --unset --global user.email
+ 
+Sao chép kho lưu trữ từ GitHub
+```````````````````````````````````````````
+# git clone https://githib.com/account_name/repo.git
+# cd repo/
+# ls -a
+.git
+ 
+Khởi tạo một kho lưu trữ Git trong thư mục hiện tại
+````````````````
+# mkdir dir
+# cd dir
+# git init
+
+Kiểm tra thư mục .git
+# ls -a
+.git/
+ 
+Thêm tệp vào khu vực staging
+# git add .
+OR
+# git add FILENAME
+ 
+ 
+ 
+Xem thiết lập cụ thể của kho lưu trữ
+```````````````````````````````````````````````
+# cat .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote "var_name"]
+        url = https://github.com/dungdungptit
+/rce.git
+        fetch = +refs/heads/*:refs/remotes/var_name/*
+ 
+ 
+Tạo một nhánh mới:
+````````````````
+# git checkout -b first
+-b: branch name
+ 
+[Được sử dụng để chuyển và tạo một nhánh mới]
+ 
+Chuyển sang nhánh khác
+````````````````
+# git checkout first
+ 
+Liệt kê các nhánh hiện tại:
+`````````````
+# git branch
+ 
+Liệt kê các nhánh từ xa
+`````````````````````
+# git branch -a
+ 
+ 
+ 
+ 
+ 
+Thao tác với Git
+
+Thêm nội dung vào tệp readme.md
+---
+# cat >> readme.md
+llll
+
+Kiểm tra sự khác biệt (diff)
+---
+# git diff
+diff --git a/readme.md b/readme.md
+index 039727e..11d14ae 100644
+--- a/readme.md
++++ b/readme.md
+@@ -1 +1,2 @@
+ lol
++llll
+
+
+Thêm tệp vào khu vực staging
+````````````````
+# git add readme.md
+ 
+OR
+
+# git add .
+ 
+ 
+Commit thay đổi
+# git commit -m "lol1"
+[first 835e51c] lol1
+ 1 file changed, 1 insertion(+)
+ 
+ 
+ 
+ 
+
+Hợp nhất (merge) nhánh 'test' vào nhánh 'main':
+````````````````````````````````````````
+# git checkout main
+# git merge test 
+ 
+ 
+Xem lịch sử các commit
+````````````````````
+# git log
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Xem các nhánh với show-branch
+```````````
+# git show-branch
+``````````````````````````````````````````````````````````````````
+ 
+
+
+Đẩy commit lên kho lưu trữ Git từ xa
+```````````````````````````````
+1. Thiết lập tên và email
+```````````````````````
+# git config --global user.name "Your Name"
+# git config --global user.email "your_email@whatever.com"
+ 
+# mkdir hello
+# cd hello
+ 
+ 
+# git clone URL
+
+Nội dung tệp hello.py
+# cat > hello.py
+
+#!/usr/bin/python3
+print("Hello, World")
+ 
+2. Kiểm tra trạng thái của kho lưu trữ (repository)
+`````````````````````````````````````
+Sử dụng lệnh git status để kiểm tra trạng thái hiện tại của kho lưu trữ
+ 
+# git status
+ 
+ 
+3. Thêm và commit thay đổi
+``````````````
+ 
+# git add hello.py
+# git status
+# git commit -m "Changes hello"
+ 
+Xem lịch sử các thay đổi bằng lệnh --git log-- đển lấy danh sách những thay đổi đã được thực hiện .
+ 
+# git log
+ 
+Hiển thị lịch sử trên một dòng
+`````````````````````
+# git log --pretty=oneline
+ 
+Điều chỉnh lịch sử hiển thị
+````````````````````````````````````````
+# git log --pretty=oneline --max-count=2
+# git log --pretty=oneline --since='5 minutes ago'
+# git log --pretty=oneline --until='5 minutes ago'
+# git log --pretty=oneline --author=<your name>
+# git log --pretty=oneline --all
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+``````````````````````````````````````````````````````````````````
+Quy trình làm việc với kho lưu trữ công khai (Public Repo Workflow)
+
+````````````````````
+1. Tạo kho lưu trữ công khai/riêng tư trên GitHub:
+ 
+https://github.com/dungdungptit/DevOps-Demo
+ 
+2. Sao chép kho lưu trữ về máy (clone):
+ 
+# git clone https://github.com/dungdungptit/DevOps-Demo.git
+ 
+3. Tạo một nhánh mới:
+ 
+# git checkout "test"
+# git branch
+ 
+4. Thực hiện thay đổi trên nhánh 'test':
+
+Thêm nội dung vào tệp README.md
+# cat >> README.md
+ 
+LOL
+
+Tạo tệp index.html với nội dung
+# cat > index.html
+<h1>ulala</h1>
+
+Thêm tất cả các thay đổi vào staging
+# git add .
+
+Kiểm tra trạng thái và commit thay đổi
+# git status
+# git commit -m "Home web page in test branch"
+ 
+5. Hợp nhất nhánh 'test' vào nhánh 'main':
+`
+# git checkout main
+# git merge test
+ 
+6. Thêm kho lưu trữ từ xa (remote):
+`
+# git remote add origin https://github.com/dungdungptit/DevOps-Demo.git
+
+Xem thông tin trong tệp cấu hình Git
+# cat .git/config
+ 
+7. Tạo token truy cập cá nhân (Personal Access Token):
+````````````````````
+Settings --> Developer Settings --> Personal Access Token --> Generate New Token
+
+token_generated
+
+Lưu trữ thông tin xác thực
+# git config --global credential.helper store
+ 
+ 
+8. Đẩy dữ liệu lên kho lưu trữ từ xa:
+``
+# git push -u origin main
+
+Khi được yêu cầu nhập tài khoản
+username: (Tên tài khoản GitHub): 
+password: (Token truy cập cá nhân đã tạo ở bước 7) token_generated
+ 
+.git/
+Thư mục .git/ chứa các tệp liên quan đến kho lưu trữ Git
+ 
+
+
+
+ 
+Cấu trúc bên trong Git (Git Internals):
+--------------
+Tại thư mục .git
+Liệt kê nội dung trong thư mục .git
+ 
+# ls .git
+ 
+Kho lưu trữ đối tượng (Object Store)
+`````````````````
+# ls .git/objects
+ 
+Tại đây sẽ thấy nhiều thư mục có tên gồm 2 ký tự.
+Tên thư mục là 2 ký tự đầu tiên trong hash SHA1 của các đối tượng được lưu trữ trong Git.
+ 
+Khám phá sâu hơn về kho lưu trữ đối tượng
+````````````````````````````
+# ls -C .git/objects/<dir>
+ 
+- Trong các thư mục có 2 ký tự này, sẽ xuất hiện các tệp có tên dài 38 ký tự. 
+- Đây là những tệp chứa các đối tượng được lưu trữ trong Git. 
+- Các tệp này được nén và mã hóa, do đó không thể đọc trực tiếp nội dung của chúng và việc xem trực tiếp nội dung của chúng sẽ không hữu ích lắm, nhưng chúng ta sẽ xem xét kỹ hơn sau đây.
+ 
+Tại tệp cấu hình (Config File)
+```````````
+Hiển thị nội dung tệp cấu hình
+# cat .git/config
+ 
+- Đây là tệp cấu hình cụ thể của từng dự án.
+ 
+Nhánh và thẻ (Branches and Tags)
+`````````````````
+Liệt kê nhánh và thẻ
+# ls .git/refs
+# ls .git/refs/heads
+# ls .git/refs/tags
+
+Kiểm tra nội dung của một thẻ cụ thể
+# cat .git/refs/tags/v1
+ 
+Mỗi tệp đại diện cho một thẻ được tạo bằng lệnh git tag. 
+Nội dung của tệp là hash của commit gắn liền với thẻ đó.
+ 
+ 
+Tệp HEAD
+Hiển thị nội dung của tệp HEAD
+`````````````
+# cat .git/HEAD
+ 
+Tệp HEAD chứa tham chiếu đến nhánh hiện tại.
+ 
+ 
+Trích xuất commit mới nhất (Dumping the Latest Commit)
+`````````````````````````
+# git hist --all [not working now]
+ 
+Sử dụng hash SHA1 từ commit được liệt kê ở trên để xem các thư mục bên trong.
+ 
+# git cat-file -t <hash>
+# git cat-file -p <hash>
+ 
+git log -> các trạng thái của project
+git cat vào 1 cái log -> commit có những file nào, trạng thái nào
+
+ 
+Tìm cây thư mục (Tree)
+````````````````
+- Trích xuất cây thư mục được tham chiếu trong commit. 
+- Đây sẽ là mô tả về các tệp mới nhất nhất trong dự án (tại thời điểm commit đó). 
+- Sử dụng hash SHA1 từ dòng “tree” đã liệt kê ở trên.
+ 
+# git cat-file -p <treehash>
+100644 blob 28e0e9d6ea7e25f35ec64a43fe8386f90	Rakefile
+040000 tree e46f374f5b36c6f02fb379044f754d795	lib
+ 
+ 
+ 
+Trích xuất thư mục lib (Dumping the lib directory)
+`````````````````````````
+# git cat-file -p <libhash>
+ 
+100644 blob c45f26b6779fc4c385d9d24fc12cf72	hello.rb
+ 
+Trích xuất tệp hello.rb (Dumping the hello.rb file)
+``````````````````````````
+# git cat-file -p <rbhash>
+ 
+# Default is World
+# Author: Jim Weirich (jim@somewhere.com)
+name = ARGV.first || "World"
+ 
+puts "Hello, #{name}!"
+-----------
+ 
+ 
+Cách thủ công để trích xuất nội dung của blob:
+``````````````````````````````````````
+Liệt kê lịch sử
+# git log --pretty=oneline
+or
+# git log --stat --pretty=oneline
+
+Hiển thị thông tin cụ thể của commit
+# git show ab35d03c8f4f238fd94f0ec3abd533dbe0b5a352
+
+Liệt kê tất cả các đối tượng và kiểm tra nội dung blob
+# git cat-file --batch-check --batch-all-objects | grep blob
+# git cat-file -p HASH
+ 
+
+Trích xuất các thông tin cụ thể (ví dụ: username, password, database)
+# git cat-file --batch-check --batch-all-objects | grep blob | awk '{print $1}' | while read -r hash;do git cat-file -p $hash;done | grep "username\|password\|db_user\|db_pass"
+
+Git revert
+- `git log`
+
+commit e272c0401d735cf4e05b7066c532c4c025b049c3 (HEAD)
+Author: dungdungptit <anhdungvk01@gmail.com>
+Date:   Sun Dec 8 21:26:15 2024 +0700
+
+    readme
+
+commit 9f35dbc6fdb4c04260be902fa3bc53aaa2de2ba3
+Author: dungdungptit <anhdungvk01@gmail.com>
+Date:   Sun Dec 8 21:17:55 2024 +0700
+
+    init project
+(END)
+
+- `git checkout 9f35dbc6fdb4c04260be902fa3bc53aaa2de2ba3`
